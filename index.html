@@ -4,11 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Secure Site Management - Comprehensive Physical Security</title>
-	<!-- SEO: Meta Description for Search Engines -->
     <meta name="description" content="Secure Site Management offers bespoke physical security solutions, 24/7 monitoring, and on-site operatives for buildings, remote locations, and critical infrastructure.">
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Inter Font -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -53,15 +50,22 @@
             color: #991b1b; /* Red dark */
             border: 1px solid #ef4444;
         }
+        /* Styles for mobile menu transition */
+        .mobile-menu {
+            transition: transform 0.3s ease-in-out;
+            transform: translateY(-100%);
+        }
+        .mobile-menu.open {
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body>
 
-    <!-- Header Section -->
     <header class="bg-gray-900 text-white p-4 shadow-md">
-        <div class="container mx-auto flex justify-between items-center px-4">
-            <h1 class="text-3xl font-bold">Secure Site Management</h1>
-            <nav>
+        <div class="container mx-auto w-full flex justify-between items-center px-4">
+            <h1 class="text-2xl sm:text-3xl font-bold">Secure Site Management</h1>
+            <nav class="hidden md:flex">
                 <ul class="flex space-x-6">
                     <li><a href="#about" id="aboutUsLink" class="hover:text-blue-400 transition duration-300">About Us</a></li>
                     <li><a href="#services" class="hover:text-blue-400 transition duration-300">Services</a></li>
@@ -69,21 +73,35 @@
                     <li><a href="#contact" class="hover:text-blue-400 transition duration-300">Contact</a></li>
                 </ul>
             </nav>
+            <div class="md:hidden">
+                <button id="menu-button" class="text-white focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <nav id="mobile-menu" class="mobile-menu bg-gray-900 text-white fixed top-16 left-0 w-full h-full z-20 flex flex-col items-center py-8 md:hidden">
+        <a href="#about" class="text-2xl py-4 hover:text-blue-400 transition duration-300" onclick="closeMenu()">About Us</a>
+        <a href="#services" class="text-2xl py-4 hover:text-blue-400 transition duration-300" onclick="closeMenu()">Services</a>
+        <a href="#why-us" class="text-2xl py-4 hover:text-blue-400 transition duration-300" onclick="closeMenu()">Why Choose Us?</a>
+        <a href="#contact" class="text-2xl py-4 hover:text-blue-400 transition duration-300" onclick="closeMenu()">Contact</a>
+    </nav>
+
+
     <section id="heroSection" class="hero-section relative">
         <div class="hero-overlay"></div>
-        <div class="container mx-auto relative z-10 text-center px-4 py-20 md:py-32">
-            <h2 class="text-5xl md:text-6xl font-extrabold mb-4 leading-tight">
+        <div class="container mx-auto w-full relative z-10 text-center px-4 py-20 md:py-32">
+            <h2 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">
                 Comprehensive Security Solutions for the Physical World.
             </h2>
-            <p class="text-xl md:text-2xl mt-4 max-w-3xl mx-auto">
+            <p class="text-lg md:text-2xl mt-4 max-w-3xl mx-auto">
                 Protecting your physical assets, infrastructure, and people with bespoke, end-to-end security.
             </p>
-            <div class="mt-8 space-x-4">
-                <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-full shadow-lg transition duration-300">
+            <div class="mt-8 space-x-2 md:space-x-4 flex flex-col md:flex-row items-center justify-center">
+                <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-full shadow-lg transition duration-300 mb-4 md:mb-0">
                     Request a Free Consultation
                 </a>
                 <a href="#services" class="bg-transparent border-2 border-white hover:bg-white hover:text-blue-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg transition duration-300">
@@ -93,43 +111,37 @@
         </div>
     </section>
 
-    <!-- About Section -->
     <section id="about" class="py-16 bg-white px-4">
-        <div class="container mx-auto text-center max-w-4xl">
-            <h3 class="text-4xl font-bold text-gray-800 mb-6">About Secure Site Management</h3>
-            <p class="text-lg text-gray-600 leading-relaxed">
+        <div class="container mx-auto w-full text-center max-w-4xl">
+            <h3 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">About Secure Site Management</h3>
+            <p class="text-md md:text-lg text-gray-600 leading-relaxed">
                 In an age where threats are ever-evolving, protecting your physical assets, infrastructure, and people is more critical than ever. Secure Site Management goes beyond the digital realm, providing bespoke, end-to-end security solutions for your buildings, remote locations, and critical infrastructure.
             </p>
-            <p class="text-lg text-gray-600 leading-relaxed mt-4">
+            <p class="text-md md:text-lg text-gray-600 leading-relaxed mt-4">
                 We combine cutting-edge technology with highly trained security professionals to deliver an unparalleled level of protection, ensuring your peace of mind.
             </p>
         </div>
     </section>
 
-    <!-- Services Section -->
     <section id="services" class="py-16 bg-gray-100 px-4">
-        <div class="container mx-auto">
-            <h3 class="text-4xl font-bold text-gray-800 text-center mb-12">Our Bespoke Solutions</h3>
-            <p class="text-lg text-gray-600 text-center mb-10 max-w-3xl mx-auto">
+        <div class="container mx-auto w-full">
+            <h3 class="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-12">Our Bespoke Solutions</h3>
+            <p class="text-md md:text-lg text-gray-600 text-center mb-10 max-w-3xl mx-auto">
                 We understand that one size doesn't fit all. Our in-house engineers design and build custom security systems from the ground up to meet your unique needs and challenges.
             </p>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-                <!-- Service 1 -->
                 <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition duration-300">
                     <h4 class="text-2xl font-semibold text-gray-800 mb-4">Integrated Security Systems</h4>
                     <p class="text-gray-600">From CCTV and access control to alarm systems, we create a unified security network that provides seamless protection.</p>
                 </div>
-                <!-- Service 2 -->
                 <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition duration-300">
                     <h4 class="text-2xl font-semibold text-gray-800 mb-4">On-Site Security Operatives</h4>
                     <p class="text-gray-600">Our highly trained and vetted security professionals can be deployed to provide on-site security, patrols, and rapid response to any alerts.</p>
                 </div>
-                <!-- Service 3 -->
                 <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition duration-300">
                     <h4 class="text-2xl font-semibold text-gray-800 mb-4">24/7 Remote Monitoring</h4>
                     <p class="text-gray-600">Our command center provides round-the-clock monitoring of your sites. Our team of security operatives is ready to respond to any security alerts, dispatching on-site teams or coordinating with local authorities as needed.</p>
                 </div>
-                <!-- Service 4 -->
                 <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition duration-300">
                     <h4 class="text-2xl font-semibold text-gray-800 mb-4">Infrastructure Protection</h4>
                     <p class="text-gray-600">We specialize in securing critical infrastructure and remote locations, protecting against vandalism, theft, and unauthorized access.</p>
@@ -138,30 +150,25 @@
         </div>
     </section>
 
-    <!-- Why Choose Us Section -->
     <section id="why-us" class="py-16 bg-white px-4">
-        <div class="container mx-auto">
-            <h3 class="text-4xl font-bold text-gray-800 text-center mb-12">Why Choose Secure Site Management?</h3>
+        <div class="container mx-auto w-full">
+            <h3 class="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-12">Why Choose Secure Site Management?</h3>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Benefit 1 -->
                 <div class="flex flex-col items-center text-center p-6 bg-gray-50 rounded-lg shadow-md">
                     <div class="text-blue-600 text-5xl mb-4">🔒</div>
                     <h4 class="text-2xl font-semibold text-gray-800 mb-2">Custom-Built for You</h4>
                     <p class="text-gray-600">Our in-house team designs systems tailored to your specific requirements for maximum protection.</p>
                 </div>
-                <!-- Benefit 2 -->
                 <div class="flex flex-col items-center text-center p-6 bg-gray-50 rounded-lg shadow-md">
                     <div class="text-blue-600 text-5xl mb-4">💡</div>
                     <h4 class="text-2xl font-semibold text-gray-800 mb-2">Human Expertise & Technology</h4>
                     <p class="text-gray-600">We blend state-of-the-art tech with the intuition and rapid response of our trained operatives.</p>
                 </div>
-                <!-- Benefit 3 -->
                 <div class="flex flex-col items-center text-center p-6 bg-gray-50 rounded-lg shadow-md">
                     <div class="text-blue-600 text-5xl mb-4">⚡</div>
                     <h4 class="text-2xl font-semibold text-gray-800 mb-2">Proactive & Responsive</h4>
                     <p class="text-gray-600">We actively monitor and our teams are ready to respond to any threat, day or night.</p>
                 </div>
-                <!-- Benefit 4 -->
                 <div class="flex flex-col items-center text-center p-6 bg-gray-50 rounded-lg shadow-md">
                     <div class="text-blue-600 text-5xl mb-4">✅</div>
                     <h4 class="text-2xl font-semibold text-gray-800 mb-2">End-to-End Solutions</h4>
@@ -171,11 +178,10 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact" class="py-16 bg-gray-100 px-4">
-        <div class="container mx-auto max-w-3xl">
-            <h3 class="text-4xl font-bold text-gray-800 text-center mb-10">Ready to Elevate Your Security?</h3>
-            <p class="text-lg text-gray-600 text-center mb-8">
+        <div class="container mx-auto w-full max-w-3xl">
+            <h3 class="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-10">Ready to Elevate Your Security?</h3>
+            <p class="text-md md:text-lg text-gray-600 text-center mb-8">
                 Contact us today to discuss your security needs and discover the Secure Site Management difference.
             </p>
             <form id="contactForm" class="bg-white p-8 rounded-lg shadow-md">
@@ -203,17 +209,15 @@
                         Send Message
                     </button>
                 </div>
-                <!-- Message Box for Form Submission -->
                 <div id="formMessage" class="message-box mt-4" role="alert"></div>
             </form>
         </div>
     </section>
 
-    <!-- Footer Section -->
     <footer class="bg-gray-900 text-white p-8 text-center">
-        <div class="container mx-auto px-4">
+        <div class="container mx-auto w-full px-4">
             <p>&copy; 2025 Secure Site Management. All rights reserved.</p>
-            <p class="mt-2">
+            <p class="mt-2 text-sm md:text-base">
                 <a href="#" class="hover:text-blue-400 transition duration-300">Privacy Policy</a> |
                 <a href="#" class="hover:text-blue-400 transition duration-300">Terms of Service</a>
             </p>
@@ -224,9 +228,22 @@
         // Get references to the elements
         const aboutUsLink = document.getElementById('aboutUsLink');
         const heroSection = document.getElementById('heroSection');
+        const menuButton = document.getElementById('menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
         // Corrected image path formatting for JavaScript
         const defaultBackgroundImage = 'url(my-security-background.png)'; // REPLACE with your default local image path
         const logoBackgroundImage = 'url(SSM_logo_site_blur.jpg)'; // REPLACE with the actual path to your logo
+
+        // Add event listener to the mobile menu button
+        menuButton.addEventListener('click', function() {
+            mobileMenu.classList.toggle('open');
+        });
+
+        // Function to close the mobile menu
+        function closeMenu() {
+            mobileMenu.classList.remove('open');
+        }
 
         // Add event listener to the "About Us" link
         aboutUsLink.addEventListener('click', function(event) {
@@ -241,17 +258,6 @@
                 behavior: 'smooth'
             });
         });
-
-        // Optional: Revert background image if user scrolls away or clicks another link
-        // This can be done using an Intersection Observer API or by adding click listeners to other nav links
-        // Example to revert if user clicks another link (you'd need to add an id to other nav links too)
-        // const servicesLink = document.getElementById('servicesLink'); // Assuming you add id="servicesLink"
-        // if (servicesLink) {
-        //     servicesLink.addEventListener('click', function() {
-        //         heroSection.style.backgroundImage = defaultBackgroundImage;
-        //     });
-        // }
-
 
         // Form Validation and Submission Logic
         document.getElementById('contactForm').addEventListener('submit', function(event) {
@@ -322,3 +328,4 @@
 
 </body>
 </html>
+
