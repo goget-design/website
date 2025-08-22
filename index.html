@@ -224,92 +224,91 @@
         </div>
     </footer>
 
-    <script>
-        // Get references to the elements
-        const aboutUsLink = document.getElementById('aboutUsLink');
-        const heroSection = document.getElementById('heroSection');
-        const menuButton = document.getElementById('menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
+   <script>
+    // Get references to the elements
+    const aboutUsLink = document.getElementById('aboutUsLink');
+    const heroSection = document.getElementById('heroSection');
+    const menuButton = document.getElementById('menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
 
-        // Corrected image path formatting for JavaScript
-        const defaultBackgroundImage = 'url(my-security-background.png)'; // REPLACE with your default local image path
-        const logoBackgroundImage = 'url(SSM_logo_site_blur.jpg)'; // REPLACE with the actual path to your logo
+    // Corrected image path formatting for JavaScript
+    const defaultBackgroundImage = 'url(my-security-background.png)'; // REPLACE with your default local image path
+    const logoBackgroundImage = 'url(SSM_logo_site_blur.jpg)'; // REPLACE with the actual path to your logo
 
-        // Add event listener to the mobile menu button
-        menuButton.addEventListener('click', function() {
-            mobileMenu.classList.toggle('open');
-        });
+    // Add event listener to the mobile menu button
+    menuButton.addEventListener('click', function() {
+        mobileMenu.classList.toggle('open');
+    });
 
-        // Function to close the mobile menu
-        function closeMenu() {
-            mobileMenu.classList.remove('open');
-        }
-
-        // Add event listener to the "About Us" link
-        aboutUsLink.addEventListener('click', function(event) {
-            // Prevent default anchor behavior (jumping directly to the section)
-            event.preventDefault();
-
-            // Change the background image of the hero section to the logo
-            heroSection.style.backgroundImage = logoBackgroundImage;
-
-            // Scroll to the About Us section smoothly
-            document.getElementById('about').scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-
-        // Form Validation and Submission Logic
-  document.getElementById('contactForm').addEventListener('submit', function(event) {
-    const nameInput = document.getElementById('name');
-    const emailInput = document.getElementById('email');
-    const messageInput = document.getElementById('message');
-    const nameError = document.getElementById('nameError');
-    const emailError = document.getElementById('emailError');
-    const messageError = document.getElementById('messageError');
-    const formMessage = document.getElementById('formMessage');
-
-    let isValid = true;
-
-    // Reset messages and errors
-    formMessage.style.display = 'none';
-    formMessage.className = 'message-box mt-4'; // Reset classes
-    nameError.classList.add('hidden');
-    emailError.classList.add('hidden');
-    messageError.classList.add('hidden');
-
-    // Validate Name
-    if (nameInput.value.trim() === '') {
-        nameError.classList.remove('hidden');
-        isValid = false;
+    // Function to close the mobile menu
+    function closeMenu() {
+        mobileMenu.classList.remove('open');
     }
 
-    // Validate Email
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(emailInput.value.trim())) {
-        emailError.classList.remove('hidden');
-        isValid = false;
-    }
-
-    // Validate Message
-    if (messageInput.value.trim() === '') {
-        messageError.classList.remove('hidden');
-        isValid = false;
-    }
-
-    if (!isValid) {
-        // Prevent form submission if validation fails
+    // Add event listener to the "About Us" link
+    aboutUsLink.addEventListener('click', function(event) {
+        // Prevent default anchor behavior (jumping directly to the section)
         event.preventDefault();
 
-        formMessage.textContent = 'Please correct the errors in the form.';
-        formMessage.classList.add('message-error');
-        formMessage.style.display = 'block';
-    } else {
-        // Allow the form to submit to Formspree if validation passes
-        // No need for any code here. The browser will handle the submission.
-    }
-});
+        // Change the background image of the hero section to the logo
+        heroSection.style.backgroundImage = logoBackgroundImage;
+
+        // Scroll to the About Us section smoothly
+        document.getElementById('about').scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+
+    // Form Validation and Submission Logic
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+        // Form fields and message elements
+        const nameInput = document.getElementById('name');
+        const emailInput = document.getElementById('email');
+        const messageInput = document.getElementById('message');
+        const nameError = document.getElementById('nameError');
+        const emailError = document.getElementById('emailError');
+        const messageError = document.getElementById('messageError');
+        const formMessage = document.getElementById('formMessage');
+
+        let isValid = true;
+
+        // Reset messages and errors
+        formMessage.style.display = 'none';
+        formMessage.className = 'message-box mt-4'; // Reset classes
+        nameError.classList.add('hidden');
+        emailError.classList.add('hidden');
+        messageError.classList.add('hidden');
+
+        // Validate Name
+        if (nameInput.value.trim() === '') {
+            nameError.classList.remove('hidden');
+            isValid = false;
+        }
+
+        // Validate Email
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(emailInput.value.trim())) {
+            emailError.classList.remove('hidden');
+            isValid = false;
+        }
+
+        // Validate Message
+        if (messageInput.value.trim() === '') {
+            messageError.classList.remove('hidden');
+            isValid = false;
+        }
+
+        // Only prevent submission if the form is invalid
+        if (!isValid) {
+            event.preventDefault(); // Stop the form from submitting
+            formMessage.textContent = 'Please correct the errors in the form.';
+            formMessage.classList.add('message-error');
+            formMessage.style.display = 'block';
+        }
+        // If isValid is true, the form submission will proceed to Formspree
+    });
     </script>
 
 </body>
 </html>
+
