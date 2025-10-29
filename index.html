@@ -69,7 +69,7 @@
             <nav class="hidden md:flex">
                 <ul class="flex space-x-6">
                     <li><a href="#about" id="aboutUsLink" class="hover:text-blue-400 transition duration-300">About Us</a></li>
-                    <li><a href="#services" class="hover:text-blue-400 transition duration-300">Services</a></li>
+                    <li><a href="#services"  id="servicesLink" class="hover:text-blue-400 transition duration-300">Services</a></li>
                     <li><a href="#why-us" class="hover:text-blue-400 transition duration-300">Why Choose Us?</a></li>
                     <li><a href="#contact" class="hover:text-blue-400 transition duration-300">Contact</a></li>
                 </ul>
@@ -239,39 +239,26 @@
 
 
    <script>
-    // Get references to the elements
-    const aboutUsLink = document.getElementById('aboutUsLink');
-    const heroSection = document.getElementById('heroSection');
-    const menuButton = document.getElementById('menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
+// --- Background Image Slideshow (every 5 seconds) ---
+const heroImages = [
+  'url(my-security-background.png)',      // Default
+  'url(security_guarding.png)',           // Second
+  'url(security_patrol_officer.png)'      // Third
+];
 
-    // Corrected image path formatting for JavaScript
-    const defaultBackgroundImage = 'url(my-security-background.png)'; // REPLACE with your default local image path
-    const logoBackgroundImage = 'url(SSM_logo_site_blur.jpg)'; // REPLACE with the actual path to your logo
+let currentHeroIndex = 0;
 
-    // Add event listener to the mobile menu button
-    menuButton.addEventListener('click', function() {
-        mobileMenu.classList.toggle('open');
-    });
+function rotateHeroBackground() {
+  heroSection.style.backgroundImage = heroImages[currentHeroIndex];
+  currentHeroIndex = (currentHeroIndex + 1) % heroImages.length;
+}
 
-    // Function to close the mobile menu
-    function closeMenu() {
-        mobileMenu.classList.remove('open');
-    }
+// Set initial background
+rotateHeroBackground();
 
-    // Add event listener to the "About Us" link
-    aboutUsLink.addEventListener('click', function(event) {
-        // Prevent default anchor behavior (jumping directly to the section)
-        event.preventDefault();
+// Change every 5 seconds (5000 ms)
+setInterval(rotateHeroBackground, 3000);
 
-        // Change the background image of the hero section to the logo
-        heroSection.style.backgroundImage = logoBackgroundImage;
-
-        // Scroll to the About Us section smoothly
-        document.getElementById('about').scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
 
     // Form Validation and Submission Logic
     document.getElementById('contactForm').addEventListener('submit', function(event) {
